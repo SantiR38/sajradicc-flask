@@ -11,7 +11,8 @@ def index():
 
 @app.route('/word', methods=['POST'])
 def form_sended():
-    word = request.form['searchname']
+    word_origin = request.form['searchname']
+    word = word_origin.lower()
     try:
         result = dicc_esp_qu[word]
         return render_template('result.html', result = result)
